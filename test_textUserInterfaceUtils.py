@@ -19,6 +19,15 @@ class test_textUserInterfaceUtils(TestCase):
         result = Utils.add_text_spaced("a")
         self.assertEqual(result, expected)
 
+    def test_add_indent(self):
+        expected = "   "
+        result = Utils.add_indent()
+        self.assertEqual(expected, result)
+
+        expected = "         "
+        result = Utils.add_indent(3)
+        self.assertEqual(expected, result)
+
     def test_add_text_spaced(self):
         expected = "a a b c "
 
