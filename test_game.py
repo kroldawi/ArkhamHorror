@@ -27,7 +27,7 @@ class TestGame(unittest.TestCase):
     def test_is_game_over(self):
         game = Game()
 
-        game.turns_passed = 100
+        game.turns_passed = game.turns_cap - 1
         self.assertFalse(game.is_game_over())
 
         game.turns_passed = game.turns_cap + 1

@@ -1,5 +1,7 @@
 from game import Game
+from player import Player
 
-game = Game()
+PLAYERS = [Player("Joanna", True), Player("Dawid"), Player("Carrie"), Player("Jonathan")]
+game = Game(PLAYERS)
 
 game.start_game()

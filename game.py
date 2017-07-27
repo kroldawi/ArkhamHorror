@@ -1,3 +1,4 @@
+import unittest
 from textUserInterfaceUtils import TextUserInterfaceUtils as Utils
 from phase import Phase
 from players import Players
@@ -7,12 +8,9 @@ class Game(object):
 
     def __init__(self, players=None):
         self.__turns_passed = 0
-        self.__turns_cap = 1000
+        self.__turns_cap = 100
         self.__phases = [Phase("Upkeep Phase"), Phase("Movement Phase"), Phase("Arkham Encounter Phase"), Phase("Otherworld Encounter Phase"), Phase("Mythos Phase")]
-
-        self.__players = players
-        if self.__players is None:
-            self.__players = Players()
+        self.__players = Players(players)
 
     @property
     def turns_passed(self):
@@ -43,14 +41,16 @@ class Game(object):
         print Utils.create_h1("Arkham Horror starts now!!!")
 
         while not self.is_game_over():
-            print "Turn: ", self.turns_passed, " out of ", self.turns_cap
+            print "Turn: ", self.turns_passed + 1, " out of ", self.turns_cap, ". No of players is ", \
+                len(self.__players.players), ", first player is ", self.__players.first_player().name
             for p in self.__phases:
-                p.start_phase()
+                p.start_phase(self.__players)
 
             self.turns_passed += 1
 
 
 if __name__ == "__main__":
+
     print "ArkhamHorrow Game Kurwa!!!"
 
     game = Game()

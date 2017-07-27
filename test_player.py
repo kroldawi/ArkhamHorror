@@ -7,7 +7,7 @@ class TestPlayer(TestCase):
     def test_constructor(self):
         expected = "Player name"
 
-        player = Player("expected")
+        player = Player(expected)
         self.assertEqual(expected, player.name, "Player name should be set in constructor.")
         self.assertFalse(player.has_first_player_token(), "By default player shouldn't have first player token.")
 
