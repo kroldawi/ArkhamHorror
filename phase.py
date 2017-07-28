@@ -14,6 +14,9 @@ class Phase(object):
     def name(self, val):
         pass
 
+    def execute_phase(self, player):
+        pass
+
     def is_phase_over(self, players):
         return players.has_all_players_played()
 
@@ -22,7 +25,7 @@ class Phase(object):
 
         while not self.is_phase_over(players):
             player = players.get_next_player()
-            print Utils.add_indent(3) + "Now it's " + player.name + "'s turn"
+            self.execute_phase(player)
 
         players.pass_first_player_token()
 

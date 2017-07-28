@@ -2,6 +2,7 @@ import unittest
 from textUserInterfaceUtils import TextUserInterfaceUtils as Utils
 from phase import Phase
 from players import Players
+from upkeepPhase import UpkeepPhase
 
 
 class Game(object):
@@ -9,7 +10,7 @@ class Game(object):
     def __init__(self, players=None):
         self.__turns_passed = 0
         self.__turns_cap = 100
-        self.__phases = [Phase("Upkeep Phase"), Phase("Movement Phase"), Phase("Arkham Encounter Phase"), Phase("Otherworld Encounter Phase"), Phase("Mythos Phase")]
+        self.__phases = [UpkeepPhase("Upkeep Phase"), Phase("Movement Phase"), Phase("Arkham Encounter Phase"), Phase("Otherworld Encounter Phase"), Phase("Mythos Phase")]
         self.__players = Players(players)
 
     @property
